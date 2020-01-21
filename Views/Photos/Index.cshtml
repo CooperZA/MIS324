@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    Separate view for each photo. Good for static content.
+    Example: <a href="~/music/about">music/About</a>
+</p>
+<ul>
+    <li><a href="~/photos/cosmos">Cosmos</a></li>
+    <li><a href="~/photos/dahlia">Dahlia</a></li>
+    <li><a href="~/photos/lotus">Lotus</a></li>
+</ul>
+<p>
+    Use parameter to pass in ID. Good for dynamic content.
+    Example: <a href="~/music/details/B0000088DC">music/Details/B0000088DC</a>
+</p>
+<ul>
+    <li><a href="~/photos/photoView?id=Cosmos">Cosmos</a></li>
+    <li><a href="~/photos/photoView?id=Dahlia">Dahlia</a></li>
+
+    <!-- MVC routing is configured pass to pass ID parameter in path -->
+    <li><a href="~/photos/photoView/Cherry">Cherry</a></li>
+    <li><a href="~/photos/photoView/Lotus">Lotus</a></li>
+</ul>

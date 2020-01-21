@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cooperz_WebApplication_MIS324", "cooperz_WebApplication_MIS324\cooperz_WebApplication_MIS324.csproj", "{21818BDF-8242-463E-9E68-055C3555F5ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21818BDF-8242-463E-9E68-055C3555F5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21818BDF-8242-463E-9E68-055C3555F5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21818BDF-8242-463E-9E68-055C3555F5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21818BDF-8242-463E-9E68-055C3555F5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D179CAEF-6E80-4361-A438-32AE1A25B607}
+	EndGlobalSection
+EndGlobal
