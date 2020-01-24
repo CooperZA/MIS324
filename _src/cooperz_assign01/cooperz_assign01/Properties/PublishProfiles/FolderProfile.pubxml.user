@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>01/22/2020 15:22:26</publishTime>
+      <publishTime>01/23/2020 20:51:02</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>01/22/2020 15:22:26</publishTime>
+      <publishTime>01/23/2020 20:51:02</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -291,6 +291,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>01/10/2020 15:31:41</publishTime>
     </File>
+    <File Include="Views/Calculator/Index.cshtml">
+      <publishTime>01/23/2020 20:49:18</publishTime>
+    </File>
     <File Include="Views/HelloWorld/index.cshtml">
       <publishTime>01/10/2020 15:42:07</publishTime>
     </File>
@@ -302,6 +305,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/10/2020 15:31:35</publishTime>
+    </File>
+    <File Include="Views/Person/Index.cshtml">
+      <publishTime>01/23/2020 14:35:21</publishTime>
     </File>
     <File Include="Views/Photos/Cosmos.cshtml">
       <publishTime>01/10/2020 15:52:27</publishTime>
@@ -323,6 +329,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>01/10/2020 15:31:35</publishTime>
+    </File>
+    <File Include="Views/Student/Index.cshtml">
+      <publishTime>01/23/2020 14:14:10</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/10/2020 15:31:35</publishTime>

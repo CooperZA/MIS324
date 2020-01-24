@@ -1,9 +1,10 @@
 Assignment 2
 
 1. Student
-
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/Student/index
 
 2. PersonForm
-
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/person/index
 
 3. Calculator
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/calculator/index
