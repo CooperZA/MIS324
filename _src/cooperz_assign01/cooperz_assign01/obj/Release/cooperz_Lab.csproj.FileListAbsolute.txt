@@ -73,3 +73,4 @@ Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Release\cooperz
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Release\cooperz_assign01.dll
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Release\cooperz_assign01.pdb
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Release\cooperz_Lab.csprojAssemblyReference.cache
+Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Release\cooperz_Lab.csproj.CoreCompileInputs.cache

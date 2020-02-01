@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>01/23/2020 20:51:02</publishTime>
+      <publishTime>01/31/2020 16:05:45</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>01/23/2020 20:51:02</publishTime>
+      <publishTime>01/31/2020 16:05:45</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -291,8 +291,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>01/10/2020 15:31:41</publishTime>
     </File>
+    <File Include="Views/BigWebForm/Index.cshtml">
+      <publishTime>01/31/2020 15:51:54</publishTime>
+    </File>
     <File Include="Views/Calculator/Index.cshtml">
       <publishTime>01/23/2020 20:49:18</publishTime>
+    </File>
+    <File Include="Views/FontPicker/Fonts.cshtml">
+      <publishTime>01/31/2020 15:31:10</publishTime>
+    </File>
+    <File Include="Views/FontPicker/Index.cshtml">
+      <publishTime>01/30/2020 14:56:28</publishTime>
     </File>
     <File Include="Views/HelloWorld/index.cshtml">
       <publishTime>01/10/2020 15:42:07</publishTime>
