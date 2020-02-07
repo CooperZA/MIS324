@@ -127,6 +127,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
+    <Compile Include="Controllers\SnowboardController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -135,9 +136,12 @@
     <Compile Include="Models\CalculatorModel.cs" />
     <Compile Include="Models\FontPickerModel.cs" />
     <Compile Include="Models\PersonFormModel.cs" />
+    <Compile Include="Models\SnowboardModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FontPickerViewModel.cs" />
+    <Compile Include="ViewModels\ListBoardsViewModel.cs" />
+    <Compile Include="ViewModels\ListExperienceViewModel.cs" />
     <Compile Include="ViewModels\ListStatesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +197,7 @@
     <Content Include="Views\BigWebForm\Index.cshtml" />
     <Content Include="Views\FontPicker\Index.cshtml" />
     <Content Include="Views\FontPicker\Fonts.cshtml" />
+    <Content Include="Views\Snowboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
