@@ -1,0 +1,28 @@
+﻿body {
+}
+
+header, footer {
+    background-color: #c6d2fa;
+    border: solid 1px black;
+    text-align: center;
+    padding: 20px;
+}
+
+.leftMenu {
+    background-color: #dbe3fc;
+    text-align: center;
+    padding: 20px;
+    padding-right: 40px;
+}
+
+.alphaList div {
+    list-style: none;
+    width: 100%;
+    background-color: #c6d3fc;
+    padding: 1px;
+    border: solid 1px black;
+}
+
+.alphaList div:hover {
+    background-color: #b2c4ff;
+}

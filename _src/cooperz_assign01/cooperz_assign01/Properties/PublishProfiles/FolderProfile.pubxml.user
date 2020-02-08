@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>01/31/2020 16:05:45</publishTime>
+      <publishTime>02/07/2020 16:14:54</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>01/31/2020 16:05:45</publishTime>
+      <publishTime>02/07/2020 16:14:54</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -228,6 +228,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/flowers/lotus.jpg">
       <publishTime>01/22/2020 15:14:02</publishTime>
     </File>
+    <File Include="Content/LayoutParitalView.css">
+      <publishTime>02/07/2020 16:09:51</publishTime>
+    </File>
     <File Include="Content/Site.css">
       <publishTime>01/10/2020 15:54:33</publishTime>
     </File>
@@ -315,6 +318,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/10/2020 15:31:35</publishTime>
     </File>
+    <File Include="Views/LayoutPartialView/Index.cshtml">
+      <publishTime>02/07/2020 15:58:47</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/ShowImage.cshtml">
+      <publishTime>02/07/2020 16:12:36</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/_footer.cshtml">
+      <publishTime>02/07/2020 16:03:56</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/_header.cshtml">
+      <publishTime>02/07/2020 16:03:44</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/_Layout.cshtml">
+      <publishTime>02/07/2020 16:10:35</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/_leftMenu.cshtml">
+      <publishTime>02/07/2020 16:07:55</publishTime>
+    </File>
+    <File Include="Views/LayoutPartialView/_ViewStart.cshtml">
+      <publishTime>02/07/2020 16:00:38</publishTime>
+    </File>
     <File Include="Views/Person/Index.cshtml">
       <publishTime>01/23/2020 14:35:21</publishTime>
     </File>
@@ -338,6 +362,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>01/10/2020 15:31:35</publishTime>
+    </File>
+    <File Include="Views/Snowboard/Index.cshtml">
+      <publishTime>02/06/2020 18:31:38</publishTime>
+    </File>
+    <File Include="Views/Snowboard/OrderConfirmation.cshtml">
+      <publishTime>02/07/2020 15:50:53</publishTime>
     </File>
     <File Include="Views/Student/Index.cshtml">
       <publishTime>01/23/2020 14:14:10</publishTime>

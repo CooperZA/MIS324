@@ -125,6 +125,7 @@
     <Compile Include="Controllers\FontPickerController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LayoutPartialViewController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Controllers\SnowboardController.cs" />
@@ -153,6 +154,7 @@
     <Content Include="Content\images\flowers\cosmos.jpg" />
     <Content Include="Content\images\flowers\dahlia.jpg" />
     <Content Include="Content\images\flowers\lotus.jpg" />
+    <Content Include="Content\LayoutParitalView.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,6 +200,14 @@
     <Content Include="Views\FontPicker\Index.cshtml" />
     <Content Include="Views\FontPicker\Fonts.cshtml" />
     <Content Include="Views\Snowboard\Index.cshtml" />
+    <Content Include="Views\Snowboard\OrderConfirmation.cshtml" />
+    <Content Include="Views\LayoutPartialView\Index.cshtml" />
+    <Content Include="Views\LayoutPartialView\_Layout.cshtml" />
+    <Content Include="Views\LayoutPartialView\_ViewStart.cshtml" />
+    <Content Include="Views\LayoutPartialView\_header.cshtml" />
+    <Content Include="Views\LayoutPartialView\_footer.cshtml" />
+    <Content Include="Views\LayoutPartialView\_leftMenu.cshtml" />
+    <Content Include="Views\LayoutPartialView\ShowImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

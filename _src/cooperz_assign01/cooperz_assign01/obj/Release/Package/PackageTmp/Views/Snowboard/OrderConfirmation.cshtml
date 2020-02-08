@@ -1,0 +1,109 @@
+﻿@model cooperz_assign01.Models.CustomerOrderModel
+
+@{
+    ViewBag.Title = "OrderConfirmation";
+}
+
+<h2>OrderConfirmation</h2>
+
+<div class="">
+    <h4>CustomerOrderModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModelPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienceSurchargePercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceSurchargePercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienceSurchargeDollars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceSurchargeDollars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountsTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountsTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountsPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountsPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountDollars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountDollars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxDollars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxDollars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+    </dl>
+    <div class="text-center">
+        <img src="http://yorktown.cbe.wwu.edu/students/174/csandvig/content/images/SnowBoardBaker.jpg" alt="snowboard" class="shadow">
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

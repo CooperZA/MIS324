@@ -1,9 +1,0 @@
-Assignment 3 Urls
-1. BigWebForm
-http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/BigWebForm/Index 
-
-2. FontPicker
-http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/FontPicker/Index 
-
-3. FontPicker/Fonts
-http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/FontPicker/Fonts 
