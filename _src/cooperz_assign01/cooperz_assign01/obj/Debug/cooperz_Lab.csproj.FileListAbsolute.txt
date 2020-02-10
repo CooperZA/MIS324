@@ -74,3 +74,5 @@ Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_L
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_assign01.dll
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_assign01.pdb
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_Lab.csproj.CoreCompileInputs.cache
+Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\bin\Dapper.dll
+Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\bin\Dapper.xml

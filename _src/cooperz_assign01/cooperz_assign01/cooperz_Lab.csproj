@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -122,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BigWebFormController.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\FontPickerController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -130,11 +134,13 @@
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Controllers\SnowboardController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="DataRepository\CrudRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BigWebFormModel.cs" />
     <Compile Include="Models\CalculatorModel.cs" />
+    <Compile Include="Models\CrudModel.cs" />
     <Compile Include="Models\FontPickerModel.cs" />
     <Compile Include="Models\PersonFormModel.cs" />
     <Compile Include="Models\SnowboardModel.cs" />
@@ -146,6 +152,10 @@
     <Compile Include="ViewModels\ListStatesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Crud.mdf" />
+    <Content Include="App_Data\Crud_log.ldf">
+      <DependentUpon>Crud.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -210,7 +220,7 @@
     <Content Include="Views\LayoutPartialView\ShowImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Views\Crud\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
