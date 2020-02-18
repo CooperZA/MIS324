@@ -22,17 +22,15 @@ namespace cooperz_assign01.Controllers
 
         // GET: PartialView
         [ChildActionOnly]
-        public ActionResult _leftMenu()
+        public ActionResult _leftMenu(ColorModel colorModel)
         {
-            ViewBag.menu = "<ul class='alphaList'>\n";
-            for (int i = 65; i <= 90; i++)
-            {
-                char c = (char)i;
-                string relativePath = Url.Content("~/BirdView/ShowImage/");
-                ViewBag.menu += "<a href='" + relativePath + c + "'><div>" + c + "</div></a>\n ";
-            }
-            ViewBag.menu += "</ul>";
-            return PartialView();
+            return PartialView(colorModel);
+        }
+
+        // GET: bird Filtered by color /////////////// possible error with type conversion
+        public ActionResult Browse(string colorid)
+        {
+            return View("index", birdRepo.GetBirdsByColor(colorid));
         }
 
         // GET: Bird/Details
@@ -41,6 +39,25 @@ namespace cooperz_assign01.Controllers
             return View(birdRepo.GetOneBird(id));
         }
 
+        // GEt: Search Birds
+        public ActionResult Search(string id)
+        {
+            return View("index", birdRepo.Search(id));
+        }
+
+        // AJAX
+        public ActionResult AjaxSearch(string id)
+        {
+            return View();
+        }
+
+        // handler for AJAX requests, returns JSON
+        public ActionResult AjaxSearchHandler(string id)
+        {
+            return Json(birdRepo.Search(id), JsonRequestBehavior.AllowGet);
+        }
+
+        // Auto Close
         public string SetAutoClose()
         {
             string db = birdRepo.AutoClose();

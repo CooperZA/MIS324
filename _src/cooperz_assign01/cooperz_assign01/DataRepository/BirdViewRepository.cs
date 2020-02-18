@@ -65,6 +65,29 @@ namespace cooperz_assign01.DataRepository
             }
         }
 
+        // get birds by colorID
+        public List<BirdModel> GetBirdsByColor(string colorID)
+        {
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                string sql = @"SELECT b.BirdID, b.Name, b.ImageName FROM tblBirds b, tblBirdColors c WHERE b.BirdID = c.BirdID AND c.colorID = @colorID ORDER BY b.Name";
+
+                List<BirdModel> birds = db.Query<BirdModel>(sql, new { colorID }).ToList(); 
+                return birds;
+            }
+        }
+
+        // Search for Birds
+        public List<BirdModel> Search(string query)
+        {
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                string sql = @"SELECT b.BirdID, b.Name, b.ImageName, b.Description FROM tblBirds b WHERE b.Name like @query";
+                List<BirdModel> birds = db.Query<BirdModel>(sql, new { query = "%" + query + "%" }).ToList();
+                return birds;
+            }
+        }
+
         //Set SQL Server to Auto Close on
         //Run this once after creating db to set Auto Close on.
         //Pervents SQL Server  from locking your db.mdf file on the server.

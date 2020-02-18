@@ -9,8 +9,9 @@
             <div class="thumbContainer">
                 <h3>@item.Name</h3>
                 @{string thumbImage = item.ImageName.Replace(".", "T.");}
-
-                <img src='~/content/images/birds/@thumbImage' class='birdThumb' alt="@item.Name" title="@item.Name" />
+                <a href="~/Views/BirdView/Details/@item.BirdID">
+                    <img src='~/content/images/birds/@thumbImage' class='birdThumb' alt="@item.Name" title="@item.Name" />
+                </a>
             </div>
         </div>
     }

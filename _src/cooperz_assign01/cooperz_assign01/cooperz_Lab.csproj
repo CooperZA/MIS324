@@ -213,6 +213,8 @@
     <Content Include="Views\BirdView\_header.cshtml" />
     <Content Include="Views\BirdView\_footer.cshtml" />
     <Content Include="Views\BirdView\ShowImage.cshtml" />
+    <Content Include="Views\BirdView\Details.cshtml" />
+    <Content Include="Views\BirdView\AjaxSearch.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>
