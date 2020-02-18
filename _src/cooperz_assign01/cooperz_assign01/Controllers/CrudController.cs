@@ -41,5 +41,35 @@ namespace cooperz_assign01.Controllers
             crudRepo.AddPerson(crudModel);
             return RedirectToAction("Index");
         }
+
+        // GET: People/Edit
+        public ActionResult Edit(int id)
+        {
+            return View(crudRepo.GetOnePerson(id));
+        }
+
+        // POST: People/Edit
+        [HttpPost]
+        public ActionResult Edit(CrudModel crudModel)
+        {
+            if (!ModelState.IsValid) return View(crudModel);
+
+            crudRepo.UpdatePerson(crudModel);
+            return RedirectToAction("Index");
+        }
+
+        // GET: People/Delete
+        public ActionResult Delete(int id)
+        {
+            crudRepo.DeletePerson(id);
+            return RedirectToAction("Index");
+        }
+
+        public string SetAutoClose()
+        {
+            string db = crudRepo.AutoClose();
+            return "Sucess! Auto Close set to 'on' for database " + db;
+        }
+        //update and delete
     }
 }

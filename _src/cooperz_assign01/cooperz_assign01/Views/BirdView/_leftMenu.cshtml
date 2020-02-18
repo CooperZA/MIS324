@@ -1,0 +1,13 @@
+﻿@model IEnumerable<cooperz_assign01.Models.ColorModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<ul>
+@foreach (var color in Model) {
+    <li>
+        <a href="~/BirdView/Browse/@color.ColorID">@color.ColorName</a>
+    </li>
+}
+
+</ul>

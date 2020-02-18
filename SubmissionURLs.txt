@@ -28,3 +28,13 @@ http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/Snowboard/Index
 2. Layout and Partial Views
 http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/LayoutPartialView/ShowImage 
 
+
+Assignment 5
+1. Crud
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/Crud
+
+2. Bird
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/Bird
+
+3. Random Bird
+http://yorktown.cbe.wwu.edu/students/201/cooperz/MIS324/Bird/ViewRandom

@@ -124,7 +124,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BigWebFormController.cs" />
+    <Compile Include="Controllers\BirdViewController.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\BirdController.cs" />
     <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\FontPickerController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
@@ -134,12 +136,16 @@
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Controllers\SnowboardController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="DataRepository\BirdViewRepository.cs" />
+    <Compile Include="DataRepository\BirdRepository.cs" />
     <Compile Include="DataRepository\CrudRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BigWebFormModel.cs" />
+    <Compile Include="Models\BirdModel.cs" />
     <Compile Include="Models\CalculatorModel.cs" />
+    <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\CrudModel.cs" />
     <Compile Include="Models\FontPickerModel.cs" />
     <Compile Include="Models\PersonFormModel.cs" />
@@ -152,14 +158,31 @@
     <Compile Include="ViewModels\ListStatesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Bird.mdf" />
+    <Content Include="App_Data\Bird_log.ldf">
+      <DependentUpon>Bird.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Crud.mdf" />
     <Content Include="App_Data\Crud_log.ldf">
       <DependentUpon>Crud.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bird.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\birds\eagle.jpg" />
+    <Content Include="Content\images\birds\eagleT.jpg" />
+    <Content Include="Content\images\birds\finch.jpg" />
+    <Content Include="Content\images\birds\finchT.jpg" />
+    <Content Include="Content\images\birds\flicker.jpg" />
+    <Content Include="Content\images\birds\flickerT.jpg" />
+    <Content Include="Content\images\birds\grosbeak.jpg" />
+    <Content Include="Content\images\birds\grosbeakT.jpg" />
+    <Content Include="Content\images\birds\hummer.jpg" />
+    <Content Include="Content\images\birds\hummerT.jpg" />
+    <Content Include="Content\images\birds\owl.jpg" />
+    <Content Include="Content\images\birds\owlT.jpg" />
     <Content Include="Content\images\flowers\cherry.jpg" />
     <Content Include="Content\images\flowers\cosmos.jpg" />
     <Content Include="Content\images\flowers\dahlia.jpg" />
@@ -183,7 +206,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Views\BirdView\Index.cshtml" />
+    <Content Include="Views\BirdView\_ViewStart.cshtml" />
+    <Content Include="Views\BirdView\_Layout.cshtml" />
+    <Content Include="Views\BirdView\_leftMenu.cshtml" />
+    <Content Include="Views\BirdView\_header.cshtml" />
+    <Content Include="Views\BirdView\_footer.cshtml" />
+    <Content Include="Views\BirdView\ShowImage.cshtml" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -218,10 +250,18 @@
     <Content Include="Views\LayoutPartialView\_footer.cshtml" />
     <Content Include="Views\LayoutPartialView\_leftMenu.cshtml" />
     <Content Include="Views\LayoutPartialView\ShowImage.cshtml" />
+    <Content Include="Views\Crud\Index.cshtml" />
+    <Content Include="Views\Crud\Details.cshtml" />
+    <Content Include="Views\Crud\Create.cshtml" />
+    <Content Include="Views\Crud\Edit.cshtml" />
+    <Content Include="Views\Crud\Delete.cshtml" />
+    <Content Include="Views\Bird\Index.cshtml" />
+    <Content Include="Views\Bird\Details.cshtml" />
+    <Content Include="Views\Bird\Create.cshtml" />
+    <Content Include="Views\Bird\Edit.cshtml" />
+    <Content Include="Views\Bird\ViewRandom.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Crud\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

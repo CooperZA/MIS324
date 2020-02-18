@@ -9,6 +9,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>Z:\201\cooperz\MIS324\</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Data/Bird.mdf">
+      <publishTime>02/13/2020 11:23:03</publishTime>
+    </File>
+    <File Include="App_Data/Bird_log.ldf">
+      <publishTime>02/13/2020 11:23:03</publishTime>
+    </File>
+    <File Include="App_Data/Crud.mdf">
+      <publishTime>02/12/2020 17:55:59</publishTime>
+    </File>
+    <File Include="App_Data/Crud_log.ldf">
+      <publishTime>02/12/2020 17:55:59</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
@@ -16,10 +28,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>02/07/2020 16:14:54</publishTime>
+      <publishTime>02/13/2020 11:23:39</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>02/07/2020 16:14:54</publishTime>
+      <publishTime>02/13/2020 11:23:39</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>09/27/2019 09:55:36</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -216,6 +231,42 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/bootstrap.min.css.map">
       <publishTime>01/10/2020 15:31:38</publishTime>
     </File>
+    <File Include="Content/images/birds/eagle.jpg">
+      <publishTime>02/13/2020 11:15:03</publishTime>
+    </File>
+    <File Include="Content/images/birds/eagleT.jpg">
+      <publishTime>02/13/2020 11:15:04</publishTime>
+    </File>
+    <File Include="Content/images/birds/finch.jpg">
+      <publishTime>02/13/2020 11:15:04</publishTime>
+    </File>
+    <File Include="Content/images/birds/finchT.jpg">
+      <publishTime>02/13/2020 11:15:04</publishTime>
+    </File>
+    <File Include="Content/images/birds/flicker.jpg">
+      <publishTime>02/13/2020 11:15:04</publishTime>
+    </File>
+    <File Include="Content/images/birds/flickerT.jpg">
+      <publishTime>02/13/2020 11:15:05</publishTime>
+    </File>
+    <File Include="Content/images/birds/grosbeak.jpg">
+      <publishTime>02/13/2020 11:15:05</publishTime>
+    </File>
+    <File Include="Content/images/birds/grosbeakT.jpg">
+      <publishTime>02/13/2020 11:15:05</publishTime>
+    </File>
+    <File Include="Content/images/birds/hummer.jpg">
+      <publishTime>02/13/2020 11:15:05</publishTime>
+    </File>
+    <File Include="Content/images/birds/hummerT.jpg">
+      <publishTime>02/13/2020 11:15:06</publishTime>
+    </File>
+    <File Include="Content/images/birds/owl.jpg">
+      <publishTime>02/13/2020 11:15:06</publishTime>
+    </File>
+    <File Include="Content/images/birds/owlT.jpg">
+      <publishTime>02/13/2020 11:15:06</publishTime>
+    </File>
     <File Include="Content/images/flowers/cherry.jpg">
       <publishTime>01/22/2020 15:14:02</publishTime>
     </File>
@@ -297,8 +348,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/BigWebForm/Index.cshtml">
       <publishTime>01/31/2020 15:51:54</publishTime>
     </File>
+    <File Include="Views/Bird/Create.cshtml">
+      <publishTime>02/12/2020 18:19:10</publishTime>
+    </File>
+    <File Include="Views/Bird/Details.cshtml">
+      <publishTime>02/12/2020 18:11:12</publishTime>
+    </File>
+    <File Include="Views/Bird/Edit.cshtml">
+      <publishTime>02/12/2020 18:21:08</publishTime>
+    </File>
+    <File Include="Views/Bird/Index.cshtml">
+      <publishTime>02/12/2020 17:55:05</publishTime>
+    </File>
+    <File Include="Views/Bird/ViewRandom.cshtml">
+      <publishTime>02/13/2020 11:26:31</publishTime>
+    </File>
     <File Include="Views/Calculator/Index.cshtml">
       <publishTime>01/23/2020 20:49:18</publishTime>
+    </File>
+    <File Include="Views/Crud/Create.cshtml">
+      <publishTime>02/12/2020 16:15:51</publishTime>
+    </File>
+    <File Include="Views/Crud/Delete.cshtml">
+      <publishTime>02/12/2020 16:22:22</publishTime>
+    </File>
+    <File Include="Views/Crud/Details.cshtml">
+      <publishTime>02/12/2020 16:02:56</publishTime>
+    </File>
+    <File Include="Views/Crud/Edit.cshtml">
+      <publishTime>02/12/2020 16:21:00</publishTime>
+    </File>
+    <File Include="Views/Crud/Index.cshtml">
+      <publishTime>02/12/2020 11:54:02</publishTime>
     </File>
     <File Include="Views/FontPicker/Fonts.cshtml">
       <publishTime>01/31/2020 15:31:10</publishTime>
@@ -379,7 +460,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/10/2020 15:31:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/22/2020 15:02:50</publishTime>
+      <publishTime>02/13/2020 11:23:45</publishTime>
     </File>
   </ItemGroup>
 </Project>
