@@ -36,8 +36,8 @@ namespace cooperz_assign01.DataRepository
             using (IDbConnection db = new SqlConnection(connection))
             {
                 string sql = "SELECT DISTINCT c.ColorName, c.colorID FROM tblColors c, tblBirdColors bc WHERE c.colorID = bc.colorID order by ColorName;";
-                List<ColorModel> Birds = db.Query<ColorModel>(sql).ToList();
-                return Birds;
+                List<ColorModel> colors = db.Query<ColorModel>(sql).ToList();
+                return colors;
             }
         }
 
@@ -46,7 +46,7 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = "SELECT Top 4 Name, ImageName FROM tblBird ORDER BY NEWID();";
+                string sql = "SELECT Top 4 Name, ImageName, BirdID FROM tblBird ORDER BY NEWID();";
                 List<BirdModel> Birds = db.Query<BirdModel>(sql).ToList();
                 return Birds;
             }
@@ -70,7 +70,7 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT b.BirdID, b.Name, b.ImageName FROM tblBirds b, tblBirdColors c WHERE b.BirdID = c.BirdID AND c.colorID = @colorID ORDER BY b.Name";
+                string sql = @"SELECT b.BirdID, b.Name, b.ImageName FROM tblBird b, tblBirdColors c WHERE b.BirdID = c.BirdID AND c.colorID = @colorID ORDER BY b.Name";
 
                 List<BirdModel> birds = db.Query<BirdModel>(sql, new { colorID }).ToList(); 
                 return birds;
@@ -82,7 +82,7 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT b.BirdID, b.Name, b.ImageName, b.Description FROM tblBirds b WHERE b.Name like @query";
+                string sql = @"SELECT b.BirdID, b.Name, b.ImageName, b.Description FROM tblBird b WHERE b.Name like @query";
                 List<BirdModel> birds = db.Query<BirdModel>(sql, new { query = "%" + query + "%" }).ToList();
                 return birds;
             }

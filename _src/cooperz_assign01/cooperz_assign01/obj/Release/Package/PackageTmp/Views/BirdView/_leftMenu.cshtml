@@ -1,0 +1,27 @@
+﻿@model IEnumerable<cooperz_assign01.Models.ColorModel>
+@{
+    Layout = null; 
+ }
+
+<div class="leftNav">
+    <div class="columnHeading">Search</div>
+    <form action="~/BirdView/Search">
+        <input type="text" name="query" class="form-control" style="width: 90%; margin: 3px auto;"/>
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+
+    <div class="columnHeading">Color Select</div>
+    <ul class="nav nav-pills nav-stacked">
+        @foreach (var color in Model)
+        {
+            <li>
+                <a href="~/BirdView/Browse/@color.ColorID">@color.ColorName</a>
+            </li>
+        }
+
+    </ul>
+    <p class="text-center">
+        <br />
+        <a href="~/BirdView/AjaxSearch">AJAX Search</a>
+    </p>
+</div>

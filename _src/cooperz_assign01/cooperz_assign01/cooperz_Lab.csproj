@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BigWebFormController.cs" />
+    <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Controllers\BirdViewController.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\BirdController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DataRepository\BirdViewRepository.cs" />
     <Compile Include="DataRepository\BirdRepository.cs" />
+    <Compile Include="DataRepository\MusicRepository.cs" />
     <Compile Include="DataRepository\CrudRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +150,7 @@
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\CrudModel.cs" />
     <Compile Include="Models\FontPickerModel.cs" />
+    <Compile Include="Models\MusicModels.cs" />
     <Compile Include="Models\PersonFormModel.cs" />
     <Compile Include="Models\SnowboardModel.cs" />
     <Compile Include="Models\Student.cs" />
@@ -165,6 +168,10 @@
     <Content Include="App_Data\Crud.mdf" />
     <Content Include="App_Data\Crud_log.ldf">
       <DependentUpon>Crud.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Music.mdf" />
+    <Content Include="App_Data\Music_log.ldf">
+      <DependentUpon>Music.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bird.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -187,7 +194,9 @@
     <Content Include="Content\images\flowers\cosmos.jpg" />
     <Content Include="Content\images\flowers\dahlia.jpg" />
     <Content Include="Content\images\flowers\lotus.jpg" />
+    <Content Include="Content\images\music\logo55.png" />
     <Content Include="Content\LayoutParitalView.css" />
+    <Content Include="Content\music.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -215,6 +224,13 @@
     <Content Include="Views\BirdView\ShowImage.cshtml" />
     <Content Include="Views\BirdView\Details.cshtml" />
     <Content Include="Views\BirdView\AjaxSearch.cshtml" />
+    <Content Include="Views\Music\Index.cshtml" />
+    <Content Include="Views\Music\_leftMenu.cshtml" />
+    <Content Include="Views\Music\_Layout.cshtml" />
+    <Content Include="Views\Music\_header.cshtml" />
+    <Content Include="Views\Music\_footer.cshtml" />
+    <Content Include="Views\Music\_ViewStart.cshtml" />
+    <Content Include="Views\Music\Details.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>

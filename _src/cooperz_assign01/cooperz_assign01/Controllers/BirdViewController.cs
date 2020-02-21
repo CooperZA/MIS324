@@ -21,16 +21,16 @@ namespace cooperz_assign01.Controllers
         }
 
         // GET: PartialView
-        [ChildActionOnly]
-        public ActionResult _leftMenu(ColorModel colorModel)
+        public ActionResult _leftMenu()
         {
-            return PartialView(colorModel);
+            List<ColorModel> colors = birdRepo.GetColorCategories();
+            return View(colors);
         }
 
         // GET: bird Filtered by color /////////////// possible error with type conversion
-        public ActionResult Browse(string colorid)
+        public ActionResult Browse(string id)
         {
-            return View("index", birdRepo.GetBirdsByColor(colorid));
+            return View("index", birdRepo.GetBirdsByColor(id));
         }
 
         // GET: Bird/Details
@@ -40,21 +40,21 @@ namespace cooperz_assign01.Controllers
         }
 
         // GEt: Search Birds
-        public ActionResult Search(string id)
+        public ActionResult Search(string query)
         {
-            return View("index", birdRepo.Search(id));
+            return View("index", birdRepo.Search(query));
         }
 
         // AJAX
-        public ActionResult AjaxSearch(string id)
+        public ActionResult AjaxSearch()
         {
             return View();
         }
 
         // handler for AJAX requests, returns JSON
-        public ActionResult AjaxSearchHandler(string id)
+        public ActionResult AjaxSearchHandler(string query)
         {
-            return Json(birdRepo.Search(id), JsonRequestBehavior.AllowGet);
+            return Json(birdRepo.Search(query), JsonRequestBehavior.AllowGet);
         }
 
         // Auto Close

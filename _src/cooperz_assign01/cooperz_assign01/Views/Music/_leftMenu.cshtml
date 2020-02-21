@@ -1,0 +1,24 @@
+﻿@model IEnumerable<cooperz_assign01.Models.MusicStyleModel>
+
+    <div class="leftNav">
+        <div class="columnHeading">Search</div>
+        <form action="~/Music/Search">
+            <input type="text" name="query" class="form-control" style="width: 90%; margin: 3px auto;" />
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </form>
+
+        <div class="columnHeading">Color Select</div>
+        <ul class="nav nav-pills nav-stacked">
+            @foreach (var cat in Model)
+            {
+                <li>
+                    <a href="~/Music/Browse/@cat.styleId">@cat.styleName</a>
+                </li>
+            }
+
+        </ul>
+        <p class="text-center">
+            <a href="~/Music">Home</a>
+            <br />
+        </p>
+    </div>

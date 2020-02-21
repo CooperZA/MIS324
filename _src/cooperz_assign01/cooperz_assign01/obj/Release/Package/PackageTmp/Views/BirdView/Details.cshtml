@@ -1,0 +1,19 @@
+﻿@model cooperz_assign01.Models.BirdModel
+
+<div>
+    <h4>Details</h4>
+    <hr />
+    <img src="~/Content/images/birds/@Model.ImageName" class="birdImage" alt="@Model.Name" title="@Model.Name" />
+    <h3>
+        @Html.DisplayFor(model => model.Name)
+    </h3>
+
+    <p>
+        @Html.DisplayFor(model => model.Description)
+    </p>
+
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BirdID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
