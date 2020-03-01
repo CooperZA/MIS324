@@ -48,7 +48,7 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = "SELECT Top 6 Title, Artists, EditorialReviews FROM tblDescription ORDER BY NEWID();";
+                string sql = "SELECT Top 6 ASIN, Title, Artists, EditorialReviews FROM tblDescription ORDER BY NEWID();";
                 List<MusicItemModel> Music = db.Query<MusicItemModel>(sql).ToList();
                 return Music;
             }
@@ -66,13 +66,13 @@ namespace cooperz_assign01.DataRepository
         }
 
         // get music by styleID
-        public List<MusicStyleModel> GetMusicByStyle(int styleID)
+        public List<MusicItemModel> GetMusicByStyle(int styleID)
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT d.ASIN, d.title, d.artists, d.substring(EditorialReviews, 0, 200) AS EditorialReviews FROM tblDescription d, tblStyleASIN sa WHERE d.ASIN = sa.ASIN AND sa.StyleID = @styleID ORDER BY d.title";
+                string sql = @"SELECT d.ASIN, d.title, d.artists, substring(d.EditorialReviews, 0, 200) AS EditorialReviews FROM tblDescription d, tblStyleASIN sa WHERE d.ASIN = sa.ASIN AND sa.StyleID = @styleID ORDER BY d.title";
 
-                List<MusicStyleModel> music = db.Query<MusicStyleModel>(sql, new { styleID }).ToList();
+                List<MusicItemModel> music = db.Query<MusicItemModel>(sql, new { styleID }).ToList();
                 return music;
             }
         }
@@ -88,15 +88,15 @@ namespace cooperz_assign01.DataRepository
             }
         }
 
-        // Get one title by asin (for update & details)
-        public MusicItemModel GetOneTitle(string asin)
+        // Get one title by asin
+        public List<MusicItemModel> GetOneTitle(string asin)
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT ASIN, Name, ImageName, EditorialReviews
+                string sql = @"SELECT ASIN, Title, Artists, ReleaseDate, NumberOfDiscs, Label, ListPrice, DetailPageURL, EditorialReviews
                                     FROM tblDescription 
                                     WHERE ASIN = @asin";
-                MusicItemModel Title = db.Query<MusicItemModel>(sql, new { asin }).SingleOrDefault();
+                List<MusicItemModel> Title = db.Query<MusicItemModel>(sql, new { asin }).ToList();
                 return Title;
             }
         }
@@ -106,9 +106,52 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT d.Title, d.Artists, d.EditorialReviews, d.DetailPageURL FROM tblDescription d WHERE d.Title like @query";
+                string sql = @"SELECT d.ASIN, d.Title, d.Artists, d.EditorialReviews, d.DetailPageURL FROM tblDescription d WHERE d.Title like @query OR d.Artists like @query";
                 List<MusicItemModel> music = db.Query<MusicItemModel>(sql, new { query = "%" + query + "%" }).ToList();
                 return music;
+            }
+        }
+
+        // find user in database, return user information if exists 
+        public List<CustomerModel> GetPersonByEmail(string email)
+        {
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                string sql = @"SELECT * FROM tblCustomers WHERE Email = @email";
+                List<CustomerModel> customer = db.Query<CustomerModel>(sql, new { email }).ToList();
+                return customer;
+            }
+        }
+
+        //update customer info
+        public void UpdateCustomer(CustomerModel custModel)
+        {
+            string sql = @"	update tblCustomers 
+                    	set email = @Email, 
+                    		Fname = @FName, 
+                    		Lname = @LName, 
+                    		street = @Street, 
+                    		city = @City, 
+                    		state = @State, 
+                    		zipcode = @Zipcode 
+                    	 where CustId = @CustId ";
+
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                db.Query<int>(sql, custModel).SingleOrDefault();
+            }
+        }
+
+        public int InsertCustomer(CustomerModel custModel)
+        {
+            string sql = @"insert into tblCustomers (email, Fname, Lname, street, city, state, zipcode) 
+                    	values (@email, @fname, @lname, @street, @city, @state, @zipcode); 
+                        Select cast(Scope_Identity() as int);";
+
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                int custID = db.Query<int>(sql, custModel).First();
+                return custID;
             }
         }
 

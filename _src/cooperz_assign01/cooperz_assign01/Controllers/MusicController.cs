@@ -13,6 +13,8 @@ namespace cooperz_assign01.Controllers
     {
         // create repo object
         MusicRepository musicRepo = new MusicRepository();
+        // create cart repo object
+        MusicCartRepository cartRepo = new MusicCartRepository();
 
         // GET: Bird
         public ActionResult Index()
@@ -28,7 +30,7 @@ namespace cooperz_assign01.Controllers
             return View(music);
         }
 
-        // GET: Music Filtered by color /////////////// possible error with type conversion
+        // GET: Music Filtered by color
         public ActionResult Browse(int id)
         {
             //if (id == null) return RedirectToAction("index");
@@ -52,50 +54,81 @@ namespace cooperz_assign01.Controllers
             return View("index", musicRepo.Search(query));
         }
 
-        // Cart
-        //public ActionResult Cart()
-        //{
+        //Cart
+        public ActionResult Cart()
+        {
+            return View("Cart", cartRepo.GetAllItemsInCart());
+        }
 
-        //}
+        //Add to Cart
+        public ActionResult AddToCart(string id)
+        {
+            cartRepo.AddToCart(id);
+            return View("Cart", cartRepo.GetAllItemsInCart());
+        }
 
-        ////Add to Cart
-        //public ActionResult AddToCart(string id)
-        //{
+        //Remove from Cart
+        public ActionResult RemoveFromCart(string id)
+        {
+            cartRepo.RemoveFromCart(id);
+            return View("Cart", cartRepo.GetAllItemsInCart());
+        }
 
-        //}
+        //GET: Sign In
+        [HttpGet]
+        public ActionResult SignIn()
+        {
+            return View();
+        }
 
-        ////Remove from Cart
-        //public ActionResult RemoveFromCart(string id)
-        //{
+        //POST: Signin
+        [HttpPost]
+        public ActionResult SignIn(SignInModel signInModel)
+        {
+            if (!ModelState.IsValid) return View(signInModel);
 
-        //}
+            return RedirectToAction("checkout", new { signInModel.Email });
+        }
 
-        ////GET: Sign In
-        //[HttpGet]
-        //public ActionResult SignIn()
-        //{
+        //GET: Checkout
+        [HttpGet]
+        public ActionResult Checkout(string email)
+        {
+            if (email == null) return RedirectToAction("SignIn");
 
-        //}
+            CustomerModel customerModel = musicRepo.GetPersonByEmail(email);
+            if (customerModel != null)
+                ViewBag.message = "Returning Customer: Please review shipping information";
+            else
+            {
+                ViewBag.message = "New Customer: Please enter shipping information";
+                customerModel = new CustomerModel();
+                customerModel.Email = email;
+            }
 
-        ////POST: Signin
-        //[HttpPost]
-        //public ActionResult SignIn(SignInModel signInModel)
-        //{
+            return View(customerModel);
+        }
 
-        //}
+        //POST: Checkout
+        [HttpPost]
+        public ActionResult Checkout(CustomerModel customerModel)
+        {
+            if (!ModelState.IsValid) return View(customerModel);
+            // new or returning customer
+            if (customerModel.CustID > 0)
+            {
+                //returning customer
+                musicRepo.UpdateCustomer(customerModel);
 
-        ////GET: Checkout
-        //public ActionResult Checkout(SignInModel signInModel)
-        //{
+                //new customer
+                customerModel.CustID = musicRepo.InsertCustomer(customerModel); ////maybe else statement
 
-        //}
+            }
+                ViewBag.message = "Data written to db";
+                return View("OrderConfirmation", customerModel);
 
-        ////POST: Checkout
-        //[HttpPost]
-        //public ActionResult Checkout(CustomerModel customerModel)
-        //{
-
-        //}
+            //// create View ////
+        }
 
         ////History
         //public ActionResult History(string id)

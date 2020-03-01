@@ -1,35 +1,37 @@
 ﻿@model IEnumerable<cooperz_assign01.Models.MusicItemModel>
 @using System.Text.RegularExpressions
 
-<h3 class="text-center">@ViewBag.message</h3>
-<div class="row">
-    @if (Model != null)
-    {
-        foreach (var item in Model)
+<div class="col-md-8 myContent">
+    <h3 class="text-center">@ViewBag.message</h3>
+    <div class="row">
+        @if (Model != null)
         {
-            <div class="col-md-6 productContainerThumb">
-                <a href="~/music/details/@item.ASIN">
-                    <div class="productTitle">@item.Title</div>
-                </a>
-                <div>by <span class="productArtist">@item.Artists </span></div>
+            foreach (var item in Model)
+            {
+                <div class="col-md-6 productContainerThumb">
+                    <a href="~/music/details/@item.ASIN">
+                        <div class="productTitle">@item.Title</div>
+                    </a>
+                    <div>by <span class="productArtist">@item.Artists </span></div>
 
-                <a href="~/music/details/@item.ASIN">
-                    <img src="http://images.amazon.com/images/P/@(item.ASIN).01._SCTHUMBZZZ.jpg"
-                         class='productImage' alt="@item.Title" title="@item.Title" />
-                </a>
-                <div class="productDescription">
-                    @if (item.EditorialReviews != null)
-                    {
-                        //Remove HTML tags using regular expression (unclosed HTML tags can
-                        //mess up page layout.)
-                        item.EditorialReviews = Regex.Replace(item.EditorialReviews, "<[^>]*>", String.Empty);
-                        @Html.Raw(item.EditorialReviews);
-                        <a href="~/music/details/@item.ASIN">
-                            more...
-                        </a>
-                    }
+                    <a href="~/music/details/@item.ASIN">
+                        <img src="http://images.amazon.com/images/P/@(item.ASIN).01._SCTHUMBZZZ.jpg"
+                                class='productImage' alt="@item.Title" title="@item.Title" />
+                    </a>
+                    <div class="productDescription">
+                        @if (item.EditorialReviews != null)
+                        {
+                            //Remove HTML tags using regular expression (unclosed HTML tags can
+                            //mess up page layout.)
+                            item.EditorialReviews = Regex.Replace(item.EditorialReviews, "<[^>]*>", String.Empty);
+                            @Html.Raw(item.EditorialReviews);
+                            <a href="~/music/details/@item.ASIN">
+                                more...
+                            </a>
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         }
-    }
+    </div>
 </div>

@@ -9,23 +9,17 @@
     <link href="~/Content/music.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container body-content">
-        <header>
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.Partial("_header")
-                </div>
-            </div>
-        </header>
+    <div class="container myContainer">
         <div class="row">
-            <div class="col-md-3">
-                <div class="leftNav">
-                    @Html.Action("_leftMenu")
-                </div>               
+            <div class="col-md-12">
+                <header>
+                    @Html.Partial("_header")
+                </header>
             </div>
-            <div class="col-md-9">
-                @RenderBody()
-            </div>
+        </div>
+        <div class="row equalHeightContainer">
+            @Html.Action("_leftMenu")
+            @RenderBody()
         </div>
         <footer>
             <div class="row">

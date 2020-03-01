@@ -1,6 +1,7 @@
 ﻿body {
     background-image: url('images/music/bgmusic.png');
     font-family: verdana,arial,helvetica,sans-serif;
+    color: #333333;
 }
 
 .myContainer {

@@ -10,16 +10,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/Bird.mdf">
-      <publishTime>02/19/2020 12:36:03</publishTime>
+      <publishTime>02/19/2020 14:56:06</publishTime>
     </File>
     <File Include="App_Data/Bird_log.ldf">
-      <publishTime>02/19/2020 12:36:03</publishTime>
+      <publishTime>02/19/2020 14:56:06</publishTime>
     </File>
     <File Include="App_Data/Crud.mdf">
       <publishTime>02/12/2020 17:55:59</publishTime>
     </File>
     <File Include="App_Data/Crud_log.ldf">
       <publishTime>02/12/2020 17:55:59</publishTime>
+    </File>
+    <File Include="App_Data/Music.mdf">
+      <publishTime>02/23/2020 10:34:12</publishTime>
+    </File>
+    <File Include="App_Data/Music_log.ldf">
+      <publishTime>02/23/2020 10:34:12</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -28,10 +34,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>02/19/2020 12:45:40</publishTime>
+      <publishTime>02/23/2020 10:35:12</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>02/19/2020 12:45:40</publishTime>
+      <publishTime>02/23/2020 10:35:12</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>09/27/2019 09:55:36</publishTime>
@@ -282,8 +288,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/flowers/lotus.jpg">
       <publishTime>01/22/2020 15:14:02</publishTime>
     </File>
+    <File Include="Content/images/music/about.png">
+      <publishTime>02/21/2020 14:25:40</publishTime>
+    </File>
+    <File Include="Content/images/music/account.png">
+      <publishTime>02/21/2020 14:25:40</publishTime>
+    </File>
+    <File Include="Content/images/music/bgmusic.png">
+      <publishTime>02/21/2020 14:48:43</publishTime>
+    </File>
+    <File Include="Content/images/music/cart.png">
+      <publishTime>02/21/2020 14:25:40</publishTime>
+    </File>
+    <File Include="Content/images/music/logo55.png">
+      <publishTime>02/20/2020 14:44:34</publishTime>
+    </File>
     <File Include="Content/LayoutParitalView.css">
       <publishTime>02/07/2020 16:09:51</publishTime>
+    </File>
+    <File Include="Content/music.css">
+      <publishTime>02/23/2020 10:30:49</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>01/10/2020 15:54:33</publishTime>
@@ -450,6 +474,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/LayoutPartialView/_ViewStart.cshtml">
       <publishTime>02/07/2020 16:00:38</publishTime>
     </File>
+    <File Include="Views/Music/Details.cshtml">
+      <publishTime>02/23/2020 09:47:09</publishTime>
+    </File>
+    <File Include="Views/Music/Index.cshtml">
+      <publishTime>02/23/2020 10:25:06</publishTime>
+    </File>
+    <File Include="Views/Music/_footer.cshtml">
+      <publishTime>02/21/2020 15:00:50</publishTime>
+    </File>
+    <File Include="Views/Music/_header.cshtml">
+      <publishTime>02/23/2020 10:02:12</publishTime>
+    </File>
+    <File Include="Views/Music/_Layout.cshtml">
+      <publishTime>02/23/2020 10:22:06</publishTime>
+    </File>
+    <File Include="Views/Music/_leftMenu.cshtml">
+      <publishTime>02/23/2020 10:17:55</publishTime>
+    </File>
+    <File Include="Views/Music/_ViewStart.cshtml">
+      <publishTime>02/20/2020 14:46:32</publishTime>
+    </File>
     <File Include="Views/Person/Index.cshtml">
       <publishTime>01/23/2020 14:35:21</publishTime>
     </File>
@@ -490,7 +535,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/10/2020 15:31:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/13/2020 11:23:45</publishTime>
+      <publishTime>02/23/2020 10:34:22</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>01/10/2020 15:31:36</publishTime>

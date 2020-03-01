@@ -7,18 +7,18 @@
     {
         foreach (var item in Model)
         {
-    <div class="col-md-6 productContainerThumb">
+    <div class="col-md-6 productContainerDetail">
         <a href="~/music/details/@item.ASIN">
             <div class="productTitle">@item.Title</div>
         </a>
-        <div>by <span class="productArtist">@item.Artists </span></div>
+        <div>by <span class="productArtist">@item.Artists</span></div>
 
         <a href="~/music/details/@item.ASIN">
             <img src="http://images.amazon.com/images/P/@(item.ASIN).01._SCTHUMBZZZ.jpg"
                  class='productImage' alt="@item.Title" title="@item.Title" />
         </a>
         <div style="float:left;">
-            <div><b>List Price: </b><span class="priceList">@String.Format("{0:c}", item.ListPrice)</span></div>
+            <div><b>List Price: </b><span class="priceList">@String.Format("{0:c}", item.ListPrice / 100)</span></div>
             <div><b>Our Price: </b><span class="priceOurs">@String.Format("{0:c}", item.ListPrice / 100 * Convert.ToDouble(0.8))</span></div>
             <div><b>You Save: </b><span class="priceSave">@String.Format("{0:c}", item.ListPrice / 100 * Convert.ToDouble(0.2))</span></div>
 
@@ -28,6 +28,9 @@
             <div><b>Release date: </b>@item.ReleaseDate</div>
             <div><b>Number of discs: </b>@item.NumDiscs</div>
             <div><b>Label: </b>@item.Label</div>
+            <div class="externalLink" target="_blank">
+                <a href="@item.DetailUrl">View on Amazon</a>
+            </div>
             <div class="enhancement">
                 <b>Availability: </b>@item.Availability
             </div>
@@ -36,15 +39,15 @@
         <div class="clearfix"></div>
 
         <a href="~/music/addToCart/@item.ASIN">
-            <img src="/students/191/csandvig/Content/images/music/AddCartLarge.jpg" alt="Add to Cart" class="addToCartLarge" />
+            <img src="~/Content/images/music/AddCartLarge.jpg" alt="Add to Cart" class="addToCartLarge" />
         </a>
 
         <div class="sectionHeading">Editorial Reviews:</div>
         <div class="productDescription">
-            <div class='review'>@item.EditorialReviews<br> <i>Source:Product Description</i></div>
+                @Html.Raw(@item.EditorialReviews)
         </div>
 
-        <div class="productDescription">
+        @*<div class="productDescription">
             @if (item.EditorialReviews != null)
             {
                 //Remove HTML tags using regular expression (unclosed HTML tags can
@@ -55,8 +58,9 @@
                     more...
                 </a>
             }
-        </div>
+        </div>*@
     </div>
         }
     }
 </div>
+

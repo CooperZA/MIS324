@@ -75,3 +75,4 @@ Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_a
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_assign01.pdb
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\bin\Dapper.dll
 Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\bin\Dapper.xml
+Z:\201\cooperz\MIS324\_src\cooperz_assign01\cooperz_assign01\obj\Debug\cooperz_Lab.csproj.CoreCompileInputs.cache

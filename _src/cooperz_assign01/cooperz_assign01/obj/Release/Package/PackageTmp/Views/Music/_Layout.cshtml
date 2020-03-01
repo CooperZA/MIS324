@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/music.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container myContainer">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    @Html.Partial("_header")
+                </header>
+            </div>
+        </div>
+        <div class="row equalHeightContainer">
+            @Html.Action("_leftMenu")
+            @RenderBody()
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_footer")
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

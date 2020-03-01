@@ -61,4 +61,47 @@ namespace cooperz_assign01.Models
         // Style name
         public string styleName { get; set; }
     }
+
+    // music cart model
+    public class MusicCartModel
+    {
+        public string SessionId { get; set; }
+        public string ASIN { get; set; }
+        public string Title { get; set; }
+        public string Artists { get; set; }
+        public double ListPrice { get; set; }
+        public int Qty { get; set; }
+        public DateTime DateAdded { get; set; }
+    }
+
+    // Sign in model
+    public class SignInModel
+    {
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "Email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+    }
+
+    // Customer Model
+    public class CustomerModel
+    {
+        [Key]
+        public int CustID { get; set; }
+        [Required(ErrorMessage = "Email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+        [Required]
+        public string Fname { get; set; }
+        [Required]
+        public string Lname { get; set; }
+        [Required]
+        public string Street { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string State { get; set; }
+        [Required]
+        public string Zipcode { get; set; }
+    }
 }
