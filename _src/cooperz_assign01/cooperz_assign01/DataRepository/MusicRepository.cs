@@ -113,12 +113,12 @@ namespace cooperz_assign01.DataRepository
         }
 
         // find user in database, return user information if exists 
-        public List<CustomerModel> GetPersonByEmail(string email)
+        public CustomerModel GetPersonByEmail(string email)
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
                 string sql = @"SELECT * FROM tblCustomers WHERE Email = @email";
-                List<CustomerModel> customer = db.Query<CustomerModel>(sql, new { email }).ToList();
+                CustomerModel customer = db.Query<CustomerModel>(sql, new { email }).SingleOrDefault();
                 return customer;
             }
         }
@@ -152,6 +152,36 @@ namespace cooperz_assign01.DataRepository
             {
                 int custID = db.Query<int>(sql, custModel).First();
                 return custID;
+            }
+        }
+
+        // write order to DB
+        public int WriteOrder(int CustID)
+        {
+            string sql = @"INSERT INTO tblOrders (CustID, OrderDate) 
+                         VALUES (CustID, GetDate());
+                         SELECT cast(Scope_Identity() as int);";
+
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                int OrderID = db.Query<int>(sql, CustID).First();
+                return OrderID;
+            }
+        }
+
+        public int WriteOrderItems(int orderID)
+        {
+            string sql = "INSERT INTO tblOrderItem (OrderID, Asin, Qty, PricePaid) " +
+                         "SELECT @OrderID, c.Asin, c.Qty, d.ListPrice * 0.8" +
+                         "FROM tblCart c, tblDescription d" +
+                         "WHERE c.Asin = d.Asin AND SessionID = @SessionID";
+
+            string sessionID = HttpContext.Current.Session.SessionID;
+
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                int rowsEffected = db.Execute(sql, new { OrderID = orderID, SessionID = sessionID });
+                return rowsEffected;
             }
         }
 

@@ -200,6 +200,7 @@
     <Content Include="Content\images\music\AddCartLarge.jpg" />
     <Content Include="Content\images\music\bgmusic.png" />
     <Content Include="Content\images\music\cart.png" />
+    <Content Include="Content\images\music\continue-shopping.gif" />
     <Content Include="Content\images\music\logo55.png" />
     <Content Include="Content\LayoutParitalView.css" />
     <Content Include="Content\music.css" />
@@ -239,6 +240,7 @@
     <Content Include="Views\Music\Details.cshtml" />
     <Content Include="Views\Music\Cart.cshtml" />
     <Content Include="Views\Music\SignIn.cshtml" />
+    <Content Include="Views\Music\OrderConfirmation.cshtml" />
     <Content Include="Views\Music\Checkout.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>

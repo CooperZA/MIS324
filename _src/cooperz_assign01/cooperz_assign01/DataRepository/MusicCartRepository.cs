@@ -109,7 +109,7 @@ namespace cooperz_assign01.DataRepository
 
         public int EmptyCart()
         {
-            string sql = "Delete tblCart WHERE sessionID = @SessionId ";
+            string sql = "DELETE FROM tblCart WHERE sessionID = @SessionId ";
 
             using (IDbConnection db = new SqlConnection(connectString))
             {

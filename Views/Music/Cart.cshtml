@@ -1,0 +1,99 @@
+﻿@model IEnumerable<cooperz_assign01.Models.MusicCartModel>
+@using System.Text.RegularExpressions
+@*
+    Declare variables
+*@
+@{ 
+    //variables with page scope for totals and shipping
+    double itemTotal = 0;
+    double subTotal = 0;
+    int totalQty = 0;
+    double discount = 0.8;
+    double shippingBase = 3.99;
+    double shippingItem = .99;
+}
+
+
+<div class="col-md-8 myContent">
+    <h2>Shopping Cart</h2>
+    <div style="margin-left:0;">
+
+        <!-- Cart layout uses a table. Bootstrap columns do not work well for mobile cart -->
+        <table class="cartTable">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Price</th>
+                <th>Qty.</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                
+                double price = @item.ListPrice / 100 * discount;
+                itemTotal = @item.Qty * price;
+                subTotal += itemTotal;
+                totalQty += @item.Qty;
+                
+                <tr>
+                    <td>
+                        <a href='~/music/Details/@item.ASIN'>
+                            <img src="http://images.amazon.com/images/P/@(item.ASIN).01._SCTHUMBZZZ_.jpg"
+                                 class='productImage img-responsive' alt="The Division Bell" title="The Division Bell" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href='~/music/Details/@(item.ASIN)'>
+                            <span class="productTitle">@item.Title</span>
+                        </a>
+                        <br /> by
+                        <span class="productArtist">@item.Artists</span>
+                    </td>
+                    <td><span class="priceOurs">@String.Format("{0:c}", price)</span></td>
+                    <td>@item.Qty</td> <!--quantity-->
+                    <td>@String.Format("{0:c}", itemTotal)</td> <!--Total-->
+                    <td>
+                        <a href="~/music/AddToCart/@item.ASIN">Add</a><br />
+                        <a href="~/music/RemoveFromCart/@item.ASIN">Remove</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <table class="totals">
+            <tr>
+                <td><b>Sub-total: </b></td>
+                <td>@String.Format("{0:c}", subTotal)</td>
+            </tr>
+            <tr>
+                <td><b>Shipping:</b></td>
+                <td>@String.Format("{0:c}", shippingBase + (shippingItem * (totalQty - 1)))</td>
+            </tr>
+            <tr>
+                <td><b>Total:</b></td>
+                <td>@String.Format("{0:c}", subTotal + (shippingBase + (shippingItem * (totalQty - 1))))</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-md-offset-3 col-md-2">
+            <a href="~/music/index">
+                <img src="http://yorktown.cbe.wwu.edu/students/191/csandvig/Content/images/music/continue-shopping.gif" />
+            </a>
+        </div>
+        <div class="col-md-offset-1 col-md-3">
+            <a href="~/music/signin">
+                <img src="http://yorktown.cbe.wwu.edu/students/191/csandvig/Content/images/music/proceed-to-Checkout.gif" />
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <p> </p>
+        <p>Shipping is $3.99 for the first item and $.99 for each additional item.</p>
+        <p>Shipping is via UPS second day air.</p>
+    </div>
+</div>
+@* END CART SECTION *@

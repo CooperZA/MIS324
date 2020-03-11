@@ -104,4 +104,13 @@ namespace cooperz_assign01.Models
         [Required]
         public string Zipcode { get; set; }
     }
+
+    // checkout model
+    public class MusicCheckoutModel
+    {
+        public int OrderID { get; set; }
+        public DateTime OrderDate { get; set; }
+        public CustomerModel CustModel { get; set; }
+        public List<MusicCartModel> OrderModel { get; set; }
+    }
 }

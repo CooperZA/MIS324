@@ -57,6 +57,7 @@ namespace cooperz_assign01.Controllers
         //Cart
         public ActionResult Cart()
         {
+            // display nothing if cart is empty
             return View("Cart", cartRepo.GetAllItemsInCart());
         }
 
@@ -106,6 +107,8 @@ namespace cooperz_assign01.Controllers
                 customerModel.Email = email;
             }
 
+            ViewBag.title = "Checkout";
+
             return View(customerModel);
         }
 
@@ -113,21 +116,46 @@ namespace cooperz_assign01.Controllers
         [HttpPost]
         public ActionResult Checkout(CustomerModel customerModel)
         {
+            // check model state
             if (!ModelState.IsValid) return View(customerModel);
             // new or returning customer
             if (customerModel.CustID > 0)
             {
                 //returning customer
                 musicRepo.UpdateCustomer(customerModel);
-
+            }
+            else
+            {
                 //new customer
                 customerModel.CustID = musicRepo.InsertCustomer(customerModel); ////maybe else statement
-
             }
-                ViewBag.message = "Data written to db";
-                return View("OrderConfirmation", customerModel);
 
-            //// create View ////
+            // Write order info
+            int orderID = musicRepo.WriteOrder(customerModel.CustID);
+
+            // populate checkout model 
+            MusicCheckoutModel musicCheckoutModel = new MusicCheckoutModel();
+            musicCheckoutModel.OrderID = orderID;
+            musicCheckoutModel.OrderDate = DateTime.Now;
+            musicCheckoutModel.CustModel = customerModel;
+
+            // instatiate new music repo obj
+            MusicCartRepository mCR = new MusicCartRepository();
+
+            // populate order model with cart items
+            musicCheckoutModel.OrderModel = mCR.GetAllItemsInCart();
+
+            musicRepo.WriteOrderItems(orderID);
+
+            // delete sessionID
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+
+
+            ViewBag.title = "Order Confirmation";
+            ViewBag.message = "Data written to db";
+            return View("OrderConfirmation", musicCheckoutModel);
+
         }
 
         ////History
