@@ -22,10 +22,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/12/2020 17:55:59</publishTime>
     </File>
     <File Include="App_Data/Music.mdf">
-      <publishTime>03/02/2020 12:51:35</publishTime>
+      <publishTime>03/16/2020 22:00:18</publishTime>
     </File>
     <File Include="App_Data/Music_log.ldf">
-      <publishTime>03/02/2020 12:51:35</publishTime>
+      <publishTime>03/16/2020 22:00:18</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -34,10 +34,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.dll">
-      <publishTime>03/02/2020 12:51:34</publishTime>
+      <publishTime>03/16/2020 22:00:15</publishTime>
     </File>
     <File Include="bin/cooperz_assign01.pdb">
-      <publishTime>03/02/2020 12:51:34</publishTime>
+      <publishTime>03/16/2020 22:00:16</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>09/27/2019 09:55:36</publishTime>
@@ -303,6 +303,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/music/cart.png">
       <publishTime>02/21/2020 14:25:40</publishTime>
     </File>
+    <File Include="Content/images/music/continue-shopping.gif">
+      <publishTime>03/09/2020 13:41:45</publishTime>
+    </File>
     <File Include="Content/images/music/logo55.png">
       <publishTime>02/20/2020 14:44:34</publishTime>
     </File>
@@ -477,20 +480,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/LayoutPartialView/_ViewStart.cshtml">
       <publishTime>02/07/2020 16:00:38</publishTime>
     </File>
+    <File Include="Views/Music/About.cshtml">
+      <publishTime>03/16/2020 21:55:54</publishTime>
+    </File>
     <File Include="Views/Music/Cart.cshtml">
-      <publishTime>02/28/2020 14:58:06</publishTime>
+      <publishTime>03/16/2020 21:39:44</publishTime>
     </File>
     <File Include="Views/Music/Checkout.cshtml">
-      <publishTime>03/02/2020 12:46:56</publishTime>
+      <publishTime>03/09/2020 14:29:23</publishTime>
     </File>
     <File Include="Views/Music/Details.cshtml">
       <publishTime>02/26/2020 12:10:28</publishTime>
+    </File>
+    <File Include="Views/Music/History.cshtml">
+      <publishTime>03/11/2020 14:01:46</publishTime>
     </File>
     <File Include="Views/Music/Index.cshtml">
       <publishTime>02/23/2020 10:25:06</publishTime>
     </File>
     <File Include="Views/Music/OrderConfirmation.cshtml">
-      <publishTime>03/02/2020 12:50:02</publishTime>
+      <publishTime>03/16/2020 21:35:48</publishTime>
     </File>
     <File Include="Views/Music/SignIn.cshtml">
       <publishTime>03/02/2020 12:41:47</publishTime>
@@ -499,13 +508,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2020 15:00:50</publishTime>
     </File>
     <File Include="Views/Music/_header.cshtml">
-      <publishTime>02/23/2020 10:02:12</publishTime>
+      <publishTime>03/16/2020 21:55:07</publishTime>
     </File>
     <File Include="Views/Music/_Layout.cshtml">
       <publishTime>02/23/2020 10:22:06</publishTime>
     </File>
     <File Include="Views/Music/_leftMenu.cshtml">
-      <publishTime>02/23/2020 10:17:55</publishTime>
+      <publishTime>03/16/2020 11:02:34</publishTime>
     </File>
     <File Include="Views/Music/_ViewStart.cshtml">
       <publishTime>02/20/2020 14:46:32</publishTime>

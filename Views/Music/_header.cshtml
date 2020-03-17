@@ -1,4 +1,16 @@
-﻿<div class="navbar navbar-inverse">
+﻿@*@model IEnumerable<cooperz_assign01.Models.MusicCartModel>
+ Loop through the qty of items in cart and add up qty 
+@{
+    int totalQty = 0;
+
+    foreach(var item in Model)
+    {
+        totalQty += item.Qty;
+    }
+}*@
+
+
+<div class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,9 +38,12 @@
         <div class="col-md-2">
             <div class="navbar-collapse collapse">
                 <div class="nav navbar-nav iconContainer">
-                    <a href="~/music/Cart">
-                        <img src="~/content/images/music/cart.png" class="icon" alt="Cart" title="Cart">
-                    </a>
+                    
+                        <a href="~/music/Cart">
+                            <img src="~/content/images/music/cart.png" class="icon" alt="Cart" title="Cart">
+                        </a>
+                        @*<span class="ml-3">@totalQty</span>*@
+                    
                     <a href="~/music/signin">
                         <img src="~/content/images/music/account.png" class="icon" alt="Signin" title="Signin">
                     </a><a href="~/music/about">

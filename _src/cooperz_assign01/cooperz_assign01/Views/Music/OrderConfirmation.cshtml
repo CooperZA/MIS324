@@ -1,8 +1,8 @@
 ﻿@model cooperz_assign01.Models.MusicCheckoutModel
 
-<div class="col-md-8 myContent">
-    <style>
-        /*
+    <div class="col-md-8 myContent">
+        <style>
+            /*
                 The OrderConfirmation view is used for both the browser
                 and email.
                 Email clients do not support external stylesheets and tables
@@ -11,169 +11,168 @@
                 Here are
                 a few styles needed for the email to look OK.
             */
-        body, h4 {
-            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-        }
+            body, h4 {
+                font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+            }
 
-        table {
-            border: none;
-        }
+            table {
+                border: none;
+            }
 
-        td {
-            padding: 5px;
-            vertical-align: top;
-        }
+            td {
+                padding: 5px;
+                vertical-align: top;
+            }
 
-        .productImage {
-            border: solid 1px black;
-            box-shadow: 5px 5px 10px #a19b9b;
-            margin: 15px 25px 15px 0;
-            margin: 10px;
-        }
+            .productImage {
+                border: solid 1px black;
+                box-shadow: 5px 5px 10px #a19b9b;
+                margin: 15px 25px 15px 0;
+                margin: 10px;
+            }
 
-        .productTitle {
-            color: #033e5c;
-            font-size: medium;
-        }
+            .productTitle {
+                color: #033e5c;
+                font-size: medium;
+            }
 
-        .itemsShipped td {
-            padding: 10px;
-        }
+            .itemsShipped td {
+                padding: 10px;
+            }
 
-        .totals {
-            margin-left: 40%;
-        }
+            .totals {
+                margin-left: 40%;
+            }
 
-        .totals td {
-            padding: 2px;
-        }
+                .totals td {
+                    padding: 2px;
+                }
 
-        .enhancement {
-            display: none;
-        }
-    </style>
+            .enhancement {
+                display: none;
+            }
+        </style>
+        <div>
+            <div class="text-center">
+                <h4>Thank you for ordering from MVC Music!</h4>
+            </div>
+            <hr />
 
-    <div>
-        <div class="text-center">
-            <h4>Thank you for ordering from MVC Music!</h4>
-        </div>
-        <hr />
+            <div style="margin-left:10%;">
 
-        <div style="margin-left:10%;">
+                <table>
+                    <tr>
+                        <td><b>Order ID: </b></td>
+                        <td>@Model.OrderID</td>
+                    </tr>
+                    <tr>
+                        <td><b>Order Date: </b></td>
+                        <td>@Model.OrderDate.ToShortDateString() @Model.OrderDate.ToShortTimeString() </td>
+                    </tr>
+                    <tr>
+                        <td><b>Shipped to: </b></td>
+                        <td>
+                            @Model.CustModel.Fname @Model.CustModel.Lname<br />
+                            @Model.CustModel.Street<br />
+                            @Model.CustModel.City @Model.CustModel.State @Model.CustModel.Zipcode
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Items shipped:</b>
+                        </td>
+                        <td>
 
-            <table>
-                <tr>
-                    <td><b>Order ID: </b></td>
-                    <td>@Model.OrderID</td>
-                </tr>
-                <tr>
-                    <td><b>Order Date: </b></td>
-                    <td>@Model.OrderDate.ToShortDateString() @Model.OrderDate.ToShortTimeString() </td>
-                </tr>
-                <tr>
-                    <td><b>Shipped to: </b></td>
-                    <td>
-                        @Model.CustModel.Fname @Model.CustModel.Lname<br />
-                        @Model.CustModel.Street<br />
-                        @Model.CustModel.City @Model.CustModel.State @Model.CustModel.Zipcode
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Items shipped:</b>
-                    </td>
-                    <td>
+                            <table class="itemsShipped">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Price</th>
+                                    <th>Qty.</th>
+                                    <th>Total</th>
+                                </tr>
 
-                        <table class="itemsShipped">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>Price</th>
-                                <th>Qty.</th>
-                                <th>Total</th>
-                            </tr>
+                                @* Declare globals *@
+                                @{
+                                    //variables with page scope for calculating totals and shipping
+                                    double itemTotal = 0;
+                                    double subTotal = 0;
+                                    int totalQty = 0;
+                                    double discount = 0.8;
+                                    double shippingBase = 4;
+                                    double shippingItem = .50;
+                                }
 
-                            @* Declare globals *@
-                            @{
-                                //variables with page scope for calculating totals and shipping
-                                double itemTotal = 0;
-                                double subTotal = 0;
-                                int totalQty = 0;
-                                double discount = 0.8;
-                                double shippingBase = 4;
-                                double shippingItem = .50;
-                            }
+                                @foreach (var item in Model.OrderModel)
+                                {
+                                    @* declare locals for totals *@
 
-                            @foreach (var item in Model.OrderModel)
-                            {
-                                @* declare locals for totals *@
-                                @{ 
                                     double price = item.ListPrice / 100 * discount;
                                     itemTotal = @item.Qty * price;
                                     subTotal += itemTotal;
                                     totalQty += @item.Qty;
+
+                                    <tr>
+                                        <td>
+                                            <a href="~/music/Details/@item.ASIN">
+                                                <img src="http://images.amazon.com/images/P/@item.ASIN.01._SCTHUMBZZZ_.jpg"
+                                                     class='productImage' style="margin:0 0 5px 10px;" alt="@item.Title" title="@item.Title" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="~/music/Details/@item.ASIN">
+                                                <span class="productTitle">@item.Title</span>
+                                            </a>
+                                            <br /> by
+                                            <span class="productArtist">@item.Artists</span>
+                                        </td>
+                                        <td><span class="priceOurs">@String.Format("{0:c}", price)</span></td>
+                                        <td>@item.Qty</td>
+                                        <td>@String.Format("{0:c}", itemTotal)</td>
+                                    </tr>
+
                                 }
+                            </table>
+
+                            @* how to access the cart model attr *@
+                            <table class="totals">
                                 <tr>
-                                    <td>
-                                        <a href="~/music/Details/@item.ASIN">
-                                            <img src="http://images.amazon.com/images/P/@item.ASIN.01._SCTHUMBZZZ_.jpg"
-                                                 class='productImage' style="margin:0 0 5px 10px;" alt="@item.Title" title="@item.Title" />
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="~/music/Details/@item.ASIN">
-                                            <span class="productTitle">@item.Title</span>
-                                        </a>
-                                        <br /> by
-                                        <span class="productArtist">@item.Artists</span>
-                                    </td>
-                                    <td><span class="priceOurs">@price</span></td>
-                                    <td>@item.Qty</td>
-                                    <td>@itemTotal</td>
+                                    <td><b>Sub-total: </b></td>
+                                    <td>@String.Format("{0:c}", subTotal)</td>
                                 </tr>
+                                <tr>
+                                    <td><b>Shipping:</b></td>
+                                    <td>@String.Format("{0:c}", shippingBase + (shippingItem * (totalQty - 1)))</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Total:</b></td>
+                                    <td>@String.Format("{0:c}", subTotal + (shippingBase + (shippingItem * (totalQty - 1))))</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-                            }
-                        </table>
+            <div class="text-center">
 
-                        @* how to access the cart model attr *@
-                        <table class="totals">
-                            <tr>
-                                <td><b>Sub-total: </b></td>
-                                <td>@String.Format("{0:c}", subTotal)</td>
-                            </tr>
-                            <tr>
-                                <td><b>Shipping:</b></td>
-                                <td>@String.Format("{0:c}", shippingBase + (shippingItem * (totalQty - 1)))</td>
-                            </tr>
-                            <tr>
-                                <td><b>Total:</b></td>
-                                <td>@String.Format("{0:c}", subTotal + (shippingBase + (shippingItem * (totalQty - 1))))</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+                <p>
+                    <a href="~/music/index">
+                        <img src="~/content/images/music/continue-shopping.gif" />
+                    </a>
+                </p>
+                <p>
+                    <a href="~/music/history/48">
+                        <b>Order History</b>
+                    </a><br />
+                </p>
+
+                <p>
+                    <a href="~/music/index">
+                        <img src="~/Content/images/music/logo55.png" />
+                    </a>
+                </p>
+            </div>
         </div>
-        
-        <div class="text-center">
 
-            <p>
-                <a href="~/music/index">
-                    <img src="~/content/images/music/continue-shopping.gif" />
-                </a>
-            </p>
-            <p>
-                <a href="~/music/history/48">
-                    <b>Order History</b>
-                </a><br />
-            </p>
-
-            <p>
-                <a href="~/music/index">
-                    <img src="~/Content/images/music/logo55.png" />
-                </a>
-            </p>
-        </div>
     </div>
-
-</div>

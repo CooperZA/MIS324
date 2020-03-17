@@ -59,7 +59,7 @@ namespace cooperz_assign01.DataRepository
         {
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = "SELECT DISTINCT s.StyleName, s.StyleID FROM tblStyles s, tblStyleAsin sa WHERE s.StyleID = sa.StyleID AND ParentStyleId = 0 ORDER BY StyleName;";
+                string sql = "SELECT DISTINCT s.StyleName, s.StyleID, COUNT(*) as NumProducts FROM tblStyles s, tblStyleAsin sa WHERE s.StyleID = sa.StyleID AND ParentStyleId = 0 GROUP BY s.StyleID, s.StyleName ORDER BY StyleName;";
                 List<MusicStyleModel> music = db.Query<MusicStyleModel>(sql).ToList();
                 return music;
             }
@@ -115,9 +115,10 @@ namespace cooperz_assign01.DataRepository
         // find user in database, return user information if exists 
         public CustomerModel GetPersonByEmail(string email)
         {
+            //get record from db where email is true
             using (IDbConnection db = new SqlConnection(connection))
             {
-                string sql = @"SELECT * FROM tblCustomers WHERE Email = @email";
+                string sql = @"SELECT * FROM tblCustomers WHERE email = @email";
                 CustomerModel customer = db.Query<CustomerModel>(sql, new { email }).SingleOrDefault();
                 return customer;
             }
@@ -159,21 +160,22 @@ namespace cooperz_assign01.DataRepository
         public int WriteOrder(int CustID)
         {
             string sql = @"INSERT INTO tblOrders (CustID, OrderDate) 
-                         VALUES (CustID, GetDate());
+                         VALUES (@CustID, GetDate());
                          SELECT cast(Scope_Identity() as int);";
 
             using (IDbConnection db = new SqlConnection(connection))
             {
-                int OrderID = db.Query<int>(sql, CustID).First();
+                int OrderID = db.QuerySingle<int>(sql, new { CustID });
                 return OrderID;
             }
         }
 
+        // write the order items to db
         public int WriteOrderItems(int orderID)
         {
-            string sql = "INSERT INTO tblOrderItem (OrderID, Asin, Qty, PricePaid) " +
-                         "SELECT @OrderID, c.Asin, c.Qty, d.ListPrice * 0.8" +
-                         "FROM tblCart c, tblDescription d" +
+            string sql = "INSERT INTO tblOrderItems (OrderID, Asin, Qty, PricePaid) " +
+                         "SELECT @OrderID, c.Asin, c.Qty, d.ListPrice * 0.8 " +
+                         "FROM tblCart c, tblDescription d " +
                          "WHERE c.Asin = d.Asin AND SessionID = @SessionID";
 
             string sessionID = HttpContext.Current.Session.SessionID;
@@ -182,6 +184,17 @@ namespace cooperz_assign01.DataRepository
             {
                 int rowsEffected = db.Execute(sql, new { OrderID = orderID, SessionID = sessionID });
                 return rowsEffected;
+            }
+        }
+
+        // get history method
+        public List<MusicHistoryModel> GetHistory(string CustID)
+        {
+            using (IDbConnection db = new SqlConnection(connection))
+            {
+                string sql = "SELECT oi.OrderID, oi.ASIN, oi.Qty, oi.PricePaid, d.Title, d.Artists FROM tblOrderItems oi JOIN tblOrders o ON oi.OrderID = o.OrderID JOIN tblDescription d ON d.ASIN = oi.ASIN WHERE CustID = @CustID";
+                List<MusicHistoryModel> history = db.Query<MusicHistoryModel>(sql, new { CustID }).ToList();
+                return history;
             }
         }
 

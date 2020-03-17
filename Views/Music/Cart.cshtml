@@ -31,12 +31,24 @@
 
             @foreach (var item in Model)
             {
-                
+                if (item.Qty <= 0)
+                {
+                    <tr>
+                        <td>
+                            <a href='~/music/Index'>
+                                <span class="productTitle">Add Some Items To Your Cart</span>
+                            </a>
+                        </td>
+                    </tr>
+
+                    return;
+                }
+
                 double price = @item.ListPrice / 100 * discount;
                 itemTotal = @item.Qty * price;
                 subTotal += itemTotal;
                 totalQty += @item.Qty;
-                
+
                 <tr>
                     <td>
                         <a href='~/music/Details/@item.ASIN'>

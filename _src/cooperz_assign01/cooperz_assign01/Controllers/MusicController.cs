@@ -16,12 +16,18 @@ namespace cooperz_assign01.Controllers
         // create cart repo object
         MusicCartRepository cartRepo = new MusicCartRepository();
 
-        // GET: Bird
+        // GET: Index
         public ActionResult Index()
         {
             ViewBag.Title = "MVC Music";
             return View(musicRepo.GetRandom());
         }
+
+        // Header
+        //public ActionResult _header()
+        //{
+        //    return View("_header", cartRepo.GetAllItemsInCart());
+        //}
 
         // GET: PartialView
         public ActionResult _leftMenu()
@@ -130,6 +136,8 @@ namespace cooperz_assign01.Controllers
                 customerModel.CustID = musicRepo.InsertCustomer(customerModel); ////maybe else statement
             }
 
+            Response.Write("CustID: " + customerModel.CustID);
+
             // Write order info
             int orderID = musicRepo.WriteOrder(customerModel.CustID);
 
@@ -154,21 +162,51 @@ namespace cooperz_assign01.Controllers
 
             ViewBag.title = "Order Confirmation";
             ViewBag.message = "Data written to db";
-            return View("OrderConfirmation", musicCheckoutModel);
 
+            // send email here 3c-3d
+            // create method to generate header info
+            string head = Utilities.SendEmail.GenerateHeader();
+
+            //generate body
+            string body = RenderRazorViewToString("OrderConfirmation", musicCheckoutModel);
+
+            // other email vars
+            string fromEmail = "cooperz@wwu.edu";
+            string subject = "Your MVC Music Order";
+            string fromName = "MVC Music";
+
+            // send email
+            Utilities.SendEmail.Send(customerModel.Email, customerModel.Fname + ' ' + customerModel.Lname, fromEmail, fromName, subject, body, true);
+
+            return View("OrderConfirmation", musicCheckoutModel);
         }
 
-        ////History
-        //public ActionResult History(string id)
-        //{
+        //History
+        public ActionResult History(string id)
+        {
+            return View("History", musicRepo.GetHistory(id));
+        }
 
-        //}
+        //About
+        public ActionResult About()
+        {
+            return View();
+        }
 
-        ////About
-        //public ActionResult About()
-        //{
-
-        //}
+        // TODO: Where to put 3c and 3d
+        //build html email string
+        private string RenderRazorViewToString(string viewName, object model)
+        {
+            ViewData.Model = model;
+            using (var sw = new System.IO.StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+                viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+                return sw.GetStringBuilder().ToString();
+            }
+        }
 
         // Auto Close
         public string SetAutoClose()

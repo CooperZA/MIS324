@@ -60,6 +60,9 @@ namespace cooperz_assign01.Models
 
         // Style name
         public string styleName { get; set; }
+        
+        // number of items in category
+        public string numProducts { get; set; }
     }
 
     // music cart model
@@ -112,5 +115,17 @@ namespace cooperz_assign01.Models
         public DateTime OrderDate { get; set; }
         public CustomerModel CustModel { get; set; }
         public List<MusicCartModel> OrderModel { get; set; }
+    }
+
+    // music history model
+    public class MusicHistoryModel
+    {
+        public int OrderID { get; set; }
+        public string ASIN { get; set; }
+        public int Qty { get; set; }
+        public double PricePaid { get; set; }
+        public DateTime OrderDate { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
     }
 }

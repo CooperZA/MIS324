@@ -1,0 +1,52 @@
+﻿@model IEnumerable<cooperz_assign01.Models.MusicHistoryModel>
+
+<div class="col-md-8 myContent">
+    <h3 class="text-center">Order History</h3>
+    <h4 class="text-center">
+        @* number of orders goes here <span>items ordered</span>*@
+    </h4>
+    <hr />
+
+    <div class="row" style="font-weight:700">
+        <div class="col-md-offset-5 col-md-4">Title</div>
+        <div class="col-md-1">Price</div>
+        <div class="col-md-1">Quantity</div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="row" style="padding:4px;">
+            <div class="col-md-2">
+                <a href='~/music/Details/@item.ASIN'>
+                    <img src="http://images.amazon.com/images/P/@item.ASIN.01._SCTHUMBZZZ_.jpg"
+                         class='productImage' style="margin:0 0 5px 10px;" alt="In Between Dreams [Vinyl]" title="In Between Dreams [Vinyl]" />
+                </a>
+            </div>
+            <div class="col-md-3">
+                <div><b>Order ID:</b> 111 </div>
+                <p><b>Date:</b>@item.OrderDate</p>
+            </div>
+            <div class="col-md-4">
+                <span class="productTitle">@item.Title</span>
+                <br /> by
+                <span class="productArtist">@item.Artist</span>
+            </div>
+            <div class="col-md-1 productPrice">
+                <span class="priceOurs">@item.PricePaid</span>
+            </div>
+            <div class="col-md-1 text-center">
+                @item.Qty
+            </div>
+        </div>
+
+
+    }
+    <div class="row" style="margin:20px 0;">
+        <div class="col-md-offset-5 col-md-2">
+            <a href="~/music/index">
+                <img src="~/Content/images/music/continue-shopping.gif" />
+            </a><br />
+        </div>
+    </div>
+
+</div>

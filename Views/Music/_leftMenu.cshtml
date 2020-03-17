@@ -15,7 +15,7 @@
                     @foreach (var cat in Model)
                     {
                         <li>
-                            <a href="~/Music/Browse/@cat.styleId">@cat.styleName</a>
+                            <a href="~/Music/Browse/@cat.styleId">@cat.styleName (@cat.numProducts)</a>
                         </li>
                     }
 
